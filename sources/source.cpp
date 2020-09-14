@@ -2,6 +2,9 @@
 #include <header.hpp>
 #include <vector>
 #include <fstream>
+#include <nlohmann/json.hpp>
+
+using nlohmann::json;
 
 int main() {
   //...

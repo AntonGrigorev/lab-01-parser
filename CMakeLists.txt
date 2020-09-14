@@ -41,12 +41,12 @@ add_executable(tests
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
 )
 
-add_executable(student
+add_executable(main
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/student.cpp
 )
 
-target_link_libraries(student PUBLIC nlohmann_json::nlohmann_json)
+target_link_libraries(main PUBLIC nlohmann_json::nlohmann_json)
 
 # TODO: change template word to project name and delete this comment
 target_include_directories(template 
@@ -55,14 +55,14 @@ target_include_directories(template
 target_include_directories(tests 
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
-target_include_directories(student 
+target_include_directories(main 
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 # TODO: change template word to project name and delete this comment
 target_link_libraries(tests GTest::main template)
 
-target_link_libraries(student PUBLIC nlohmann_json::nlohmann_json)
+target_link_libraries(main PUBLIC nlohmann_json::nlohmann_json)
 
 enable_testing()
 add_test(NAME unit_tests COMMAND tests) 
