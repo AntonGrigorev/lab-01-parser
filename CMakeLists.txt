@@ -20,9 +20,12 @@ HunterGate(
 
 # TODO: rename project and delete this comment
 project(template)
+
+if (UNIX)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
+endif (UNIX)
 
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
@@ -39,17 +42,17 @@ add_library(template STATIC
 add_executable(tests
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources/student.cpp
 )
 
 add_executable(main
   # TODO: enum your files and delete this comment
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/student.cpp
 )
 
-target_link_libraries(main PUBLIC nlohmann_json::nlohmann_json)
-
 # TODO: change template word to project name and delete this comment
-target_include_directories(template 
+target_include_directories(template
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 target_include_directories(tests 
@@ -61,6 +64,8 @@ target_include_directories(main
 
 # TODO: change template word to project name and delete this comment
 target_link_libraries(tests GTest::main template)
+
+target_link_libraries(template PUBLIC nlohmann_json::nlohmann_json)
 
 target_link_libraries(main PUBLIC nlohmann_json::nlohmann_json)
 
