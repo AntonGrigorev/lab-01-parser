@@ -35,7 +35,8 @@ int main(int argc, char* argv[]) {
     }
 
     if (data.at("_meta").at("count") != data.at("items").size()) {
-        throw std::runtime_error("Lenght of items` array is not equal to meta count");
+        throw std::runtime_error
+        ("Lenght of items` array is not equal to meta count");
     }
 
     std::vector<Student> students;
@@ -84,8 +85,8 @@ int main(int argc, char* argv[]) {
         } else {
           std::vector<std::string> debts =
               std::any_cast<std::vector<std::string>>(i.Debt);
-          for (auto& i : debts) {
-            std::cout << i << " ";
+          for (auto& j : debts) {
+            std::cout << j << " ";
           }
         }
       }
