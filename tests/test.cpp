@@ -55,5 +55,3 @@ TEST(Json, Case3) {
   EXPECT_EQ(debts[1], "Linux");
   EXPECT_EQ(debts[2], "Network");
 }
-
-
